@@ -59,4 +59,17 @@ nav .nav-link {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+#about-tree {
+  width: 50%;
+  color: white;
+}
+#about-tree li {
+  margin: rem;
+  padding: 2rem;
+  color: wheat;
+}
+#about-tree ul {
+  list-style: none;
 }/*# sourceMappingURL=about.css.map */

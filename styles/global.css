@@ -1,0 +1,42 @@
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+}
+
+nav {
+  height: 10vh;
+}
+nav .nav-link {
+  color: white;
+  mix-blend-mode: difference;
+}
+
+main {
+  position: absolute;
+  z-index: 1;
+  font-family: "Montserrat", sans-serif;
+}
+
+footer {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .icon-wrapper {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+}
+footer .fa-brands {
+  color: aliceblue;
+  font-size: 3rem;
+}/*# sourceMappingURL=global.css.map */

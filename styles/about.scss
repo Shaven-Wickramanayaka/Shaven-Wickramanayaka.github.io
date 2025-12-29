@@ -71,3 +71,15 @@ nav {
   align-items: center;
   text-align: center;
 }
+#about-tree {
+  width: 50%;
+  color: white;
+  li {
+    margin: rem;
+    padding: 2rem;
+    color: wheat;
+  }
+  ul {
+    list-style: none;
+  }
+}

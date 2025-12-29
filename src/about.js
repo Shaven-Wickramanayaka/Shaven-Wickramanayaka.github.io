@@ -58,12 +58,6 @@ loader.load(
   "cv-button.glb",
   function (gltf) {
     model = gltf.scene;
-    text = model.getObjectByName("Text");
-    text.material = flatMaterial;
-    model.rotateY(Math.PI / 2);
-    model.position.y = -0.7;
-    model.position.x = 0;
-    model.position.z = 8.5;
     model.traverse((child) => {
       if (child.isMesh && child.name === "Cube") {
         console.log(child.name);
@@ -71,7 +65,7 @@ loader.load(
       }
     });
     model.scale.set(1, 1, 1);
-    scene.add(model);
+    // scene.add(model);
   },
   undefined,
   function (error) {
