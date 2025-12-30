@@ -27,7 +27,7 @@ const glassMaterial = new THREE.MeshPhysicalMaterial({
   color: 0xffffff,
   transmission: 1, // Fully transmissive
   thickness: 1, // Glass thickness
-  roughness: 1, // Smooth surface
+  roughness: 0, // Smooth surface
   ior: 1, // Index of refraction for glass
   attenuationDistance: 2,
   attenuationColor: 0xffffff,
@@ -53,30 +53,33 @@ for (var i = 0; i < 20; i++) {
 
 let model;
 let text;
+let stones = [];
 const loader = new GLTFLoader();
 loader.load(
-  "cv-button.glb",
+  "crystal.glb",
   function (gltf) {
     model = gltf.scene;
+    model.material = glassMaterial;
     model.traverse((child) => {
-      if (child.isMesh && child.name === "Cube") {
+      if (child.isMesh) {
+        child.material = glassMaterial;
         console.log(child.name);
-        // child.material = glassMaterial;
+        stones.push(child);
       }
     });
     model.scale.set(1, 1, 1);
-    // scene.add(model);
+    stones[0].scale.set(2, 2, 2);
+    stones[0].position.set(1.5, 1, -10);
+    scene.add(stones[0], stones[1], stones[2]);
   },
   undefined,
   function (error) {
     console.error(error);
   }
 );
-const light = new THREE.DirectionalLight(0xffffff, 2);
-light.position.set(1, -7, 8);
-light.target.position.set(0, -19, 0);
+const light = new THREE.DirectionalLight(0xffffff, 7);
+light.target.position.set(1.5, 1, -10);
 scene.add(light);
-
 window.addEventListener("resize", (event) => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -87,13 +90,11 @@ window.addEventListener("resize", (event) => {
 function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
-  torus.rotation.z += 0.01;
 }
 function moveCamera() {
   const t = window.scrollY;
   camera.position.y = t * -0.028;
+  light.position.set(camera.position.x, camera.position.y, camera.position.z);
 }
 document.body.onscroll = moveCamera;
 
