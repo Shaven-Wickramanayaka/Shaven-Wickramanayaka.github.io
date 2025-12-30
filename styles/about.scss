@@ -72,14 +72,19 @@ nav {
   text-align: center;
 }
 #about-tree {
+  height: 150vh;
   width: 50%;
   color: white;
   li {
     margin: rem;
-    padding: 2rem;
+    padding: 1.4rem;
     color: wheat;
+    font-size: 2rem;
   }
   ul {
     list-style: none;
   }
+}
+.spotify-playing {
+  height: 40vh;
 }

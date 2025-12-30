@@ -66,7 +66,7 @@ loader.load(
     lring.material = flatMaterial;
     model.rotateY(Math.PI / 2);
     model.position.y = -4.5;
-    model.position.x = 2;
+    model.position.x = 1;
     // model.rotateY(-Math.PI / 12);
     model.traverse((child) => {
       if (child.isMesh && child.name === "path378") {
