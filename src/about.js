@@ -31,8 +31,8 @@ scene.background = new THREE.Color(0x121212);
 const glassMaterial = new THREE.MeshPhysicalMaterial({
   color: 0xffffff,
   transmission: 1, // Fully transmissive
-  thickness: 1, // Glass thickness
-  roughness: 0, // Smooth surface
+  thickness: 0.5, // Glass thickness
+  roughness: 0.5, // Smooth surface
   ior: 1, // Index of refraction for glass
   attenuationDistance: 2,
   attenuationColor: 0xffffff,
@@ -43,6 +43,7 @@ const flatMaterial = new THREE.MeshStandardMaterial({
   color: 0x01e5c00,
   emissive: 0xffff88, // Glow color
   emissiveIntensity: 1, // Glow strength
+  wireframe: true,
 });
 var starsMaterial = new THREE.PointsMaterial({
   size: 2,
@@ -69,7 +70,7 @@ loader.load(
     model.material = glassMaterial;
     model.traverse((child) => {
       if (child.isMesh) {
-        child.material = glassMaterial;
+        child.material = flatMaterial;
         console.log(child.name);
         stones.push(child);
       }
@@ -79,7 +80,11 @@ loader.load(
     stones[0].position.set(1.5, 1, -10);
     stones[0].rotation.y = 0.4;
     stones[2].scale.set(2, 2, 2);
-    stones[2].position.set(8, 1 - 8);
+    stones[2].position.set(8, 1 - 6);
+    stones[2].rotation.y = -0.3;
+    stones[1].scale.set(1.5, 1.5, 1.5);
+    stones[1].position.set(1.5, 1 - 7);
+    stones[1].rotation.y = -0.3;
     scene.add(stones[0], stones[1], stones[2]);
   },
   undefined,
@@ -87,9 +92,10 @@ loader.load(
     console.error(error);
   }
 );
-const light = new THREE.DirectionalLight(0xffffff, 7);
-light.target.position.set(1.5, 1, -10);
-scene.add(light);
+// const light = new THREE.DirectionalLight(0xffffff, 11);
+// light.position.set(1.5, 1, -5);
+// light.target.position.set(0, 1, -5);
+// scene.add(light, light.target);
 window.addEventListener("resize", (event) => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -101,14 +107,16 @@ function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
   stones[0].rotation.z = stones[0].rotation.z + 0.008;
+  stones[2].rotation.z = stones[2].rotation.z + -0.003;
+  stones[1].rotation.z = stones[1].rotation.z + 0.01;
 }
 function moveCamera() {
   const t = window.scrollY;
   camera.position.y = t * -0.006;
-  stones[0].position.y *= t * 0.008;
-  stones[1].position.y *= t * 0.008;
-  stones[2].position.y *= t * 0.008;
-  light.position.set(camera.position.x, camera.position.y, camera.position.z);
+  stones[0].position.y = 1 + t * 0.008;
+  stones[1].position.y = -6 + t * 0.006;
+  stones[2].position.y = -5 + t * 0.007;
+  // light.position.set(camera.position.x, camera.position.y, camera.position.z);
 }
 document.body.onscroll = moveCamera;
 
