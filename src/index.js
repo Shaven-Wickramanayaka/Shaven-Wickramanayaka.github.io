@@ -52,25 +52,28 @@ for (var i = 0; i < 20; i++) {
 }
 
 let model;
-let sring, mring, lring;
+let rings = [];
+let yaka;
 const loader = new GLTFLoader();
 loader.load(
   "rings.glb",
   function (gltf) {
     model = gltf.scene;
-    sring = model.getObjectByName("path4");
-    sring.material = flatMaterial;
-    mring = model.getObjectByName("path1");
-    mring.material = flatMaterial;
-    lring = model.getObjectByName("path2");
-    lring.material = flatMaterial;
+    rings[0] = model.getObjectByName("path4");
+    rings[1] = model.getObjectByName("path1");
+    rings[2] = model.getObjectByName("path2");
+    for (let i = 0; i < rings.length; i++) {
+      rings[i].material = flatMaterial;
+    }
     model.rotateY(Math.PI / 2);
     model.position.y = -4.5;
     model.position.x = 1;
-    // model.rotateY(-Math.PI / 12);
+
     model.traverse((child) => {
       if (child.isMesh && child.name === "path378") {
         console.log(child.name);
+        yaka = child;
+
         child.material = glassMaterial;
       }
     });
@@ -82,6 +85,7 @@ loader.load(
     console.error(error);
   }
 );
+
 const squareGeo = new THREE.BoxGeometry(4, 4, 4);
 const cubeTextures = [
   new THREE.MeshStandardMaterial({
@@ -125,9 +129,9 @@ scene.background = new THREE.Color(0x121212);
 function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
-  sring.rotateY(0.01);
-  mring.rotateY(0.01);
-  lring.rotateY(-0.01);
+  rings[2].rotation.x += 0.01;
+  rings[0].rotation.x += -0.01;
+  rings[1].rotation.x += -0.01;
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.005;
   cube.rotation.z += 0.01;
@@ -135,6 +139,10 @@ function animate() {
 function moveCamera() {
   const t = window.scrollY;
   camera.position.y = t * -0.006;
+  rings[0].position.y = 0.187 + t * 0.0007;
+  rings[1].position.y = 0.187 + t * 0.0007;
+  rings[2].position.y = 0.187 + t * 0.0007;
+  yaka.position.y = 0 + t * 0.001;
 }
 document.body.onscroll = moveCamera;
 
