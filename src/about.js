@@ -14,6 +14,11 @@ const camera = new THREE.OrthographicCamera(
   41, // near
   1000 // far
 );
+const Maploader = new THREE.CubeTextureLoader(); // Folder containing 6 images
+
+const envMap = Maploader.load(
+  "public/qwantani_sunrise_puresky.jpg" // +X
+);
 camera.zoom = 0.85;
 camera.position.setZ(50);
 const renderer = new THREE.WebGLRenderer({
@@ -31,6 +36,8 @@ const glassMaterial = new THREE.MeshPhysicalMaterial({
   ior: 1, // Index of refraction for glass
   attenuationDistance: 2,
   attenuationColor: 0xffffff,
+  envMap: envMap,
+  envMapIntensity: 1.0,
 });
 const flatMaterial = new THREE.MeshStandardMaterial({
   color: 0x01e5c00,
@@ -70,6 +77,9 @@ loader.load(
     model.scale.set(1, 1, 1);
     stones[0].scale.set(2, 2, 2);
     stones[0].position.set(1.5, 1, -10);
+    stones[0].rotation.y = 0.4;
+    stones[2].scale.set(2, 2, 2);
+    stones[2].position.set(8, 1 - 8);
     scene.add(stones[0], stones[1], stones[2]);
   },
   undefined,
@@ -90,10 +100,14 @@ window.addEventListener("resize", (event) => {
 function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
+  stones[0].rotation.z = stones[0].rotation.z + 0.008;
 }
 function moveCamera() {
   const t = window.scrollY;
-  camera.position.y = t * -0.028;
+  camera.position.y = t * -0.006;
+  stones[0].position.y *= t * 0.008;
+  stones[1].position.y *= t * 0.008;
+  stones[2].position.y *= t * 0.008;
   light.position.set(camera.position.x, camera.position.y, camera.position.z);
 }
 document.body.onscroll = moveCamera;

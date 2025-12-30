@@ -134,7 +134,7 @@ function animate() {
 }
 function moveCamera() {
   const t = window.scrollY;
-  camera.position.y = t * -0.028;
+  camera.position.y = t * -0.006;
 }
 document.body.onscroll = moveCamera;
 
