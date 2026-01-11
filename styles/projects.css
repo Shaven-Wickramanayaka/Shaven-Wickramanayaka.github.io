@@ -66,8 +66,16 @@ h1 {
 }
 
 .card-holder {
-  width: 100%;
+  height: auto;
+  width: 100vw;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-flow: wrap;
   align-items: center;
+  padding: 4rem;
+}
+.card-holder .card {
+  height: auto;
+  width: 20rem;
 }/*# sourceMappingURL=projects.css.map */
