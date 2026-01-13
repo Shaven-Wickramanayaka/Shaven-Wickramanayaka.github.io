@@ -73,7 +73,6 @@ loader.load(
       if (child.isMesh && child.name === "path378") {
         console.log(child.name);
         yaka = child;
-
         child.material = glassMaterial;
       }
     });
@@ -142,7 +141,7 @@ function moveCamera() {
   rings[0].position.y = 0.187 + t * 0.0007;
   rings[1].position.y = 0.187 + t * 0.0007;
   rings[2].position.y = 0.187 + t * 0.0007;
-  yaka.position.y = 0 + t * 0.001;
+  yaka.position.y = 0.18 + t * 0.001;
 }
 document.body.onscroll = moveCamera;
 
