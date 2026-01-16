@@ -90,10 +90,9 @@ loader.load(
 );
 
 window.addEventListener("resize", (event) => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  const canvas = renderer.domElement;
+  camera.aspect = canvas.clientWidth / canvas.clientHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
 
 function animate() {

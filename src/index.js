@@ -119,21 +119,24 @@ light.target.position.set(0, -19, 0);
 scene.add(light);
 
 window.addEventListener("resize", (event) => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  const canvas = renderer.domElement;
+  camera.aspect = canvas.clientWidth / canvas.clientHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
 scene.background = new THREE.Color(0x121212);
-function animate() {
-  requestAnimationFrame(animate);
+function animate(time) {
+  time += 0.001;
+  try {
+    rings[2].rotation.x += 0.01;
+    rings[0].rotation.x += -0.01;
+    rings[1].rotation.x += -0.01;
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.005;
+    cube.rotation.z += 0.01;
+  } catch (error) {}
+
   renderer.render(scene, camera);
-  rings[2].rotation.x += 0.01;
-  rings[0].rotation.x += -0.01;
-  rings[1].rotation.x += -0.01;
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.005;
-  cube.rotation.z += 0.01;
+  requestAnimationFrame(animate);
 }
 function moveCamera() {
   const t = window.scrollY;

@@ -21,11 +21,20 @@
   font-size: 3rem;
 }
 
+#intro {
+  height: 100%;
+}
 #intro div {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
+  flex-direction: column;
+}
+#intro img {
+  width: 22rem;
+  margin: 2rem;
+  border-radius: 30px;
 }
 
 .intro-text {

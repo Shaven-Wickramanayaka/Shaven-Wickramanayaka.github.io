@@ -88,6 +88,7 @@ window.addEventListener("resize", (event) => {
 
 function animate() {
   requestAnimationFrame(animate);
+
   renderer.render(scene, camera);
 }
 function moveCamera() {
