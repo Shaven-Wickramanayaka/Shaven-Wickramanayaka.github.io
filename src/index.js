@@ -42,6 +42,12 @@ var starsMaterial = new THREE.PointsMaterial({
   sizeAttenuation: true,
   transparent: true,
 });
+const metalMaterial = new THREE.MeshPhongMaterial({
+  color: 0xffffff, // Base gray color
+  specular: 0xffff88, // White specular highlights
+  shininess: 300, // High shininess for sharp reflections
+  reflectivity: 2.0, // Strong reflection effect
+});
 for (var i = 0; i < 20; i++) {
   var dome = new THREE.Points(
     new THREE.IcosahedronGeometry(50, 7),
@@ -84,34 +90,6 @@ loader.load(
     console.error(error);
   }
 );
-
-const squareGeo = new THREE.BoxGeometry(4, 4, 4);
-const cubeTextures = [
-  new THREE.MeshStandardMaterial({
-    map: textureLoader.load("img1.jpeg"),
-  }),
-  new THREE.MeshStandardMaterial({
-    map: textureLoader.load("img2.jpeg"),
-  }),
-  new THREE.MeshStandardMaterial({
-    map: textureLoader.load("img3.jpeg"),
-  }),
-  new THREE.MeshStandardMaterial({
-    map: textureLoader.load("img1.jpeg"),
-  }),
-  new THREE.MeshStandardMaterial({
-    map: textureLoader.load("img2.jpeg"),
-  }),
-  new THREE.MeshStandardMaterial({
-    map: textureLoader.load("img3.jpeg"),
-  }),
-];
-cubeTextures.colorSpace = THREE.SRGBColorSpace;
-const cube = new THREE.Mesh(squareGeo, cubeTextures);
-cube.rotateY(Math.PI / 2);
-cube.position.y = -19;
-cube.position.x = 0;
-scene.add(cube);
 
 const light = new THREE.DirectionalLight(0xffffff, 2);
 light.position.set(1, -7, 8);

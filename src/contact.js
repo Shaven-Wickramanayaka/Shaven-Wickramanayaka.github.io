@@ -37,15 +37,15 @@ const glassMaterial = new THREE.MeshPhysicalMaterial({
   attenuationColor: 0xffffff,
 });
 const metalMaterial = new THREE.MeshPhongMaterial({
-  color: 0xa2a2a2, // Base gray color
+  color: 0xffffff, // Base gray color
   specular: 0xffffff, // White specular highlights
   shininess: 300, // High shininess for sharp reflections
   reflectivity: 2.0, // Strong reflection effect
 });
-const pointLight1 = new THREE.PointLight(0xffffff, 3);
+const pointLight1 = new THREE.PointLight(0xffff88, 3);
 const pointLightHelper1 = new THREE.PointLightHelper(pointLight1, 1); // size = 1
 pointLight1.position.set(2, 0, 11);
-const pointLight2 = new THREE.PointLight(0xffffff, 3);
+const pointLight2 = new THREE.PointLight(0xffff88, 3);
 const pointLightHelper2 = new THREE.PointLightHelper(pointLight2, 1); // size = 1
 pointLight2.position.set(8, 0, 11);
 scene.add(pointLight1, pointLight2, pointLightHelper1, pointLightHelper2);

@@ -6,20 +6,69 @@
 }
 
 #about-tree {
-  height: 150vh;
-  width: 50%;
-  color: white;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+#about-tree .text-window,
+#about-tree .rock-window {
+  flex: 50%;
 }
 #about-tree li {
   margin: rem;
   padding: 1.4rem;
   color: wheat;
-  font-size: 2rem;
+  font-size: clamp(25px, 2vw, 200px);
 }
 #about-tree ul {
   list-style: none;
 }
 
-.spotify-playing {
-  height: 40vh;
+@media screen and (max-width: 600px) {
+  #about-tree {
+    flex-direction: column;
+    justify-content: start;
+    align-items: baseline;
+  }
+}
+.cv-download {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fs-btn-orange-black-rounded-outlined {
+  background-color: transparent;
+  color: #ffff88;
+  display: inline-block;
+  text-align: center;
+  padding: 20px;
+  height: 70px;
+  width: 30%;
+  font-family: "Cabin", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  border: 2px solid #ffff88;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover Effect */
+.fs-btn-orange-black-rounded-outlined:hover {
+  background-color: #ffff88;
+  color: #000000;
+}
+
+/* Responsive Full-Width Buttons on Tablets and Smaller Screens */
+@media screen and (max-width: 767px) {
+  .fs-btn-orange-black-rounded-outlined {
+    display: block;
+    width: 80%;
+    margin: 10px 0;
+  }
 }/*# sourceMappingURL=about.css.map */

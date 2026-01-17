@@ -80,10 +80,10 @@ loader.load(
     stones[0].position.set(1.5, 1, -10);
     stones[0].rotation.y = 0.4;
     stones[2].scale.set(2, 2, 2);
-    stones[2].position.set(8, 1 - 6);
+    stones[2].position.set(8, 4 - 6);
     stones[2].rotation.y = -0.3;
     stones[1].scale.set(1.5, 1.5, 1.5);
-    stones[1].position.set(1.5, 1 - 7);
+    stones[1].position.set(4, 2 - 7);
     stones[1].rotation.y = -0.3;
     scene.add(stones[0], stones[1], stones[2]);
   },
@@ -97,10 +97,9 @@ loader.load(
 // light.target.position.set(0, 1, -5);
 // scene.add(light, light.target);
 window.addEventListener("resize", (event) => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  const canvas = renderer.domElement;
+  camera.aspect = canvas.clientWidth / canvas.clientHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
 
 function animate() {
@@ -114,8 +113,8 @@ function moveCamera() {
   const t = window.scrollY;
   camera.position.y = t * -0.006;
   stones[0].position.y = 1 + t * 0.008;
-  stones[1].position.y = -6 + t * 0.006;
-  stones[2].position.y = -5 + t * 0.007;
+  stones[1].position.y = -5 + t * 0.006;
+  stones[2].position.y = -2 + t * 0.007;
   // light.position.set(camera.position.x, camera.position.y, camera.position.z);
 }
 document.body.onscroll = moveCamera;
