@@ -39,6 +39,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+.cv-download a {
+  width: 100%;
 }
 
 .fs-btn-orange-black-rounded-outlined {

@@ -13,9 +13,17 @@ section {
 }
 nav {
   height: 10vh;
+  z-index: 2;
   .nav-link {
     color: white;
     mix-blend-mode: difference;
+  }
+}
+@media screen and (max-width: 767px) {
+  nav {
+    ul {
+      background-color: #121212ef;
+    }
   }
 }
 main {

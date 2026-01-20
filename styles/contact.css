@@ -9,4 +9,33 @@ section .form-container {
 }
 section .form-container h3 {
   color: antiquewhite;
+}
+
+.fs-btn-orange-black-rounded-outlined {
+  background-color: transparent;
+  color: #ffff88;
+  text-align: center;
+  padding: 0px 20px;
+  height: 70px;
+  width: 30%;
+  font-family: "Cabin", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  border: 2px solid #ffff88;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover Effect */
+.fs-btn-orange-black-rounded-outlined:hover {
+  background-color: #ffff88;
+  color: #000000;
+}
+
+@media screen and (max-width: 800px) {
+  .form-container {
+    padding: none;
+    width: 100vw;
+  }
 }/*# sourceMappingURL=contact.css.map */

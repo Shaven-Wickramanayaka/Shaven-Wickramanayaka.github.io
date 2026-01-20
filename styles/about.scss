@@ -36,6 +36,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  a {
+    width: 100%;
+  }
 }
 .fs-btn-orange-black-rounded-outlined {
   background-color: transparent;
