@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
+
   .text-window,
   .rock-window {
     flex: 50%;
@@ -22,6 +23,7 @@
   }
   ul {
     list-style: none;
+    font-family: "Montserrat", sans-serif;
   }
 }
 @media screen and (max-width: 600px) {
@@ -58,6 +60,9 @@
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
+  h3 {
+    height: auto;
+  }
 }
 
 /* Hover Effect */

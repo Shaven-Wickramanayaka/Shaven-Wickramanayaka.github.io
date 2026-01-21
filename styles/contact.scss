@@ -12,16 +12,17 @@ section {
 }
 .fs-btn-orange-black-rounded-outlined {
   background-color: transparent;
-  color: #ffff88;
   text-align: center;
-  padding: 0px 20px;
-  height: 70px;
-  width: 30%;
-  font-family: "Cabin", sans-serif;
-  font-size: 10px;
+  padding: auto;
+  height: 60px;
+  width: 40%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
   font-weight: 400;
   border: 2px solid #ffff88;
   border-radius: 0.7rem;
+  color: white;
+  mix-blend-mode: difference;
   cursor: pointer;
   transition:
     background-color 0.2s ease,
@@ -31,7 +32,9 @@ section {
 /* Hover Effect */
 .fs-btn-orange-black-rounded-outlined:hover {
   background-color: #ffff88;
-  color: #000000;
+  h3 {
+    color: #000000;
+  }
 }
 @media screen and (max-width: 800px) {
   .form-container {

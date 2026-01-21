@@ -25,6 +25,7 @@
 }
 #about-tree ul {
   list-style: none;
+  font-family: "Montserrat", sans-serif;
 }
 
 @media screen and (max-width: 600px) {
@@ -60,6 +61,9 @@
   border-radius: 0.7rem;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+.fs-btn-orange-black-rounded-outlined h3 {
+  height: auto;
 }
 
 /* Hover Effect */

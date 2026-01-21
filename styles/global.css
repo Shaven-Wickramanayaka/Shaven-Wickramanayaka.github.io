@@ -5,6 +5,10 @@ canvas {
   z-index: 0;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 section {
   height: 100%;
   width: 100%;
@@ -13,6 +17,7 @@ section {
 nav {
   height: 10vh;
   z-index: 2;
+  font-family: "Cairo Play", sans-serif;
 }
 nav .nav-link {
   color: white;
