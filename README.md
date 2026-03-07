@@ -1,8 +1,12 @@
 # Shaven Wickramanayaka's Portfolio Website
-<!-- Insert Image Here -->
+
+<img width="1876" height="870" alt="image" src="https://github.com/user-attachments/assets/7e0e091e-d870-4034-a639-5d8aca8e2557" />
+
 ## Technologies Used
     HTML  
     SCSS
+    Javascript
+    THREE.JS
 ## Asset Creation
     Blender: For 3d Models
     Inkscape: Illustrations and Mockups
